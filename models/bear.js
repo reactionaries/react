@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 var bearSchema = new mongoose.Schema({
   name: String,
-  flavor: String,
+  hometown: String,
   fishPreference: {type: String, default: 'salmons'}
 });
 
