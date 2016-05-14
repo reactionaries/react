@@ -4,9 +4,12 @@
   "description": "CRUD client using React with data persistence",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
+    "create-db-dir": "node lib/make_directory.js",
+    "start-server": "node index.js",
+    "install": "npm run create-db-dir",
+    "start": "npm run start-server",
+    "test": "mocha"
+  },  "repository": {
     "type": "git",
     "url": "git+https://github.com/reactionaries/react.git"
   },
