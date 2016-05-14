@@ -5,9 +5,9 @@ const expect = chai.expect;
 const mongoose = require('mongoose');
 process.env.MONGOLAB_URI = 'mongodb://localhost/bears_app_test';
 const server = require(__dirname + '/../lib/bear_server_3000');
-const Bear = require(__dirname + '/../models/bear');
+const Comment = require(__dirname + '/../models/comment');
 
-describe('the bears api', () => {
+describe('the bear chat api', () => {
   after((done) => {
     mongoose.connection.db.dropDatabase(() => {
       done();
@@ -27,29 +27,29 @@ describe('the bears api', () => {
   it('should create a bear comment with a POST', (done) => {
     chai.request('localhost:3000')
       .post('/api/bears')
-      .send({name: 'test bear', comment: 'salmons running big on Skagit, yo'})
+      .send({bear: 'test bear', message: 'salmons running big on Skagit, yo'})
       .end(function(err, res) {
         expect(err).to.eql(null);
         expect(res).to.have.status(200);
-        expect(res.body.name).to.eql('test bear');
-        expect(res.body.comment).to.eql('salmons running big on Skagit, yo');
+        expect(res.body.bear).to.eql('test bear');
+        expect(res.body.message).to.eql('salmons running big on Skagit, yo');
         expect(res.body).to.have.property('_id');
         done();
       });
   });
 
-  describe('rest requests that require a bear alread in db', () => {
+  describe('rest requests that require a comment already in db', () => {
     beforeEach((done) => {
-      Bear.create({name: 'test bear', comment: 'salmons running big on Skagit, yo'}, (err, data) => {
-        this.testBear = data;
+      Comment.create({bear: 'test bear', message: 'salmons running big on Skagit, yo'}, (err, data) => {
+        this.testComment = data;
         done();
       });
     });
 
-    it('should be able to update a bear', (done) => {
+    it('should be able to update a bears comment', (done) => {
       chai.request('localhost:3000')
-        .put('/api/bears/' + this.testBear._id)
-        .send({comment: 'new bear comment'})
+        .put('/api/bears/' + this.testComment._id)
+        .send({message: 'new bear comment'})
         .end((err, res) => {
           expect(err).to.eql(null);
           expect(res).to.have.status(200);
@@ -58,9 +58,9 @@ describe('the bears api', () => {
         });
     });
 
-    it('should be able to delete a bear', (done) => {
+    it('should be able to delete a bear comment', (done) => {
       chai.request('localhost:3000')
-        .delete('/api/bears/' + this.testBear._id)
+        .delete('/api/bears/' + this.testComment._id)
         .end((err, res) => {
           expect(err).to.eql(null);
           expect(res).to.have.status(200);
