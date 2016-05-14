@@ -74,8 +74,8 @@ var CommentList = React.createClass({
   render: function() {
     var commentNodes = this.props.data.map(function(comment) {
       return (
-        <Comment author={comment.author} key={comment.id}>
-          {comment.text}
+        <Comment author={comment.bear} key={comment.id}>
+          {comment.message}
         </Comment>
       );
     });
@@ -100,8 +100,8 @@ var CommentForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
     var bear = this.state.bear.trim();
-    var comment = this.state.comment.trim();
-    if (!comment || !bear) {
+    var message = this.state.message.trim();
+    if (!message || !bear) {
       return;
     }
     this.props.onCommentSubmit({bear: bear, message: message});
@@ -129,6 +129,6 @@ var CommentForm = React.createClass({
 });
 
 ReactDOM.render(
-  <CommentBox url="/api/comments" pollInterval={2000} />,
+  <CommentBox url="/api/comments" pollInterval={500} />,
   document.getElementById('content')
 );
