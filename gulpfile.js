@@ -30,4 +30,4 @@ gulp.src(__dirname + '/app/js/client.js')
 
 gulp.task('build:dev', ['webpack:dev', 'html:dev']);
 
-gulp.task('default', 'build:dev');
+gulp.task('default', ['build:dev']);
