@@ -9,7 +9,8 @@
     "install": "npm run create-db-dir",
     "start": "npm run start-server",
     "test": "mocha"
-  },  "repository": {
+  },
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/reactionaries/react.git"
   },
@@ -22,6 +23,7 @@
     "babel-preset-react": "^6.5.0",
     "gulp": "^3.9.1",
     "gulp-load-plugins": "^1.2.0",
+    "gulp-mocha": "^2.2.0",
     "jquery": "^2.2.0",
     "reactify": "^1.1.1",
     "webpack": "^1.12.13",
