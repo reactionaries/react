@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const webpack = require('webpack-stream');
 const preset = require('babel-preset-react');
 const babel = require('babel-loader');
-
+const mocha = require('gulp-mocha');
 
 gulp.task('html:dev', () => {
   gulp.src(__dirname + '/app/**/*.html')
