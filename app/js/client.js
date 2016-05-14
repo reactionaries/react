@@ -1,40 +1,134 @@
-const React = require('react');
-const ReactDom = require('react-dom');
-var bears = ["name": "Yogi", "name": "Teddy"];
+var React = require('react');
+var ReactDom = require('react-dom');
 
-var Bear = React.createClass({
-  render: function () {
-    return (
-      <div>
-        <h2>{this.props.name}</h2>
-        <button onClick={this.props.onClick}>Relocate this bear</button>
-      </div>
-    )
-  }
-})
-
-var App = React.createClass({
-  deleteBear: function (bear) {
-    this.state.bears.splice(this.state.bears.indexOf(person), 1);
-    this.setState({bears: this.state.bears});
+var Comment = React.createClass({
+  rawMarkup: function() {
+    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
+    return { __html: rawMarkup };
   },
 
-  getInitialState: function () {
-    return {
-      bears: this.props.people.splice(0)
+  render: function() {
+    return (
+      <div className="comment">
+        <h2 className="commentAuthor">
+          {this.props.bear}
+        </h2>
+        <span dangerouslySetInnerHTML={this.rawMarkup()} />
+      </div>
+    );
+  }
+});
+
+var CommentBox = React.createClass({
+  loadCommentsFromServer: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  handleCommentSubmit: function(comment) {
+    var comments = this.state.data;
+    comment.id = Date.now();
+    var newComments = comments.concat([comment]);
+    this.setState({data: newComments});
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      type: 'POST',
+      data: comment,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        this.setState({data: comments});
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  getInitialState: function() {
+    return {data: []};
+  },
+  componentDidMount: function() {
+    this.loadCommentsFromServer();
+    setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+  },
+  render: function() {
+    return (
+      <div className="commentBox">
+        <h1>Comments</h1>
+        <CommentList data={this.state.data} />
+        <CommentForm onCommentSubmit={this.handleCommentSubmit} />
+      </div>
+    );
+  }
+});
+
+var CommentList = React.createClass({
+  render: function() {
+    var commentNodes = this.props.data.map(function(comment) {
+      return (
+        <Comment author={comment.bear} key={comment.id}>
+          {comment.message}
+        </Comment>
+      );
+    });
+    return (
+      <div className="commentList">
+        {commentNodes}
+      </div>
+    );
+  }
+});
+
+var CommentForm = React.createClass({
+  getInitialState: function() {
+    return {bear: '', message: ''};
+  },
+  handleAuthorChange: function(e) {
+    this.setState({bear: e.target.value});
+  },
+  handleTextChange: function(e) {
+    this.setState({message: e.target.value});
+  },
+  handleSubmit: function(e) {
+    e.preventDefault();
+    var bear = this.state.bear.trim();
+    var message = this.state.message.trim();
+    if (!message || !bear) {
+      return;
     }
+    this.props.onCommentSubmit({bear: bear, message: message});
+    this.setState({bear: '', message: ''});
   },
-  render: function () {
-    var that = this;
+  render: function() {
     return (
-      <div>
-        {this.state.bears.map(function (bear){
-          return (
-            <Bear onClick={that.deleteBear.bind(null, bear)} name={bear.name}></Bear>
-          )
-        })}
-      </div>
-    )
+      <form className="commentForm" onSubmit={this.handleSubmit}>
+        <input
+          type="text"
+          placeholder="Your name"
+          value={this.state.bear}
+          onChange={this.handleAuthorChange}
+        />
+        <input
+          type="text"
+          placeholder="Say something..."
+          value={this.state.message}
+          onChange={this.handleTextChange}
+        />
+        <input type="submit" value="Post" />
+      </form>
+    );
   }
-})
-ReactDom.render(<App></App>, node);
+});
+
+ReactDOM.render(
+  <CommentBox url="/api/comments" pollInterval={500} />,
+  document.getElementById('content')
+);
