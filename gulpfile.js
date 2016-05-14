@@ -28,6 +28,11 @@ gulp.src(__dirname + '/app/js/client.js')
   .pipe(gulp.dest('build/'));
 });
 
-gulp.task('build:dev', ['webpack:dev', 'html:dev']);
+gulp.task('tests:dev', () => {
+  gulp.src(__dirname + '/test/**/*.js').
+    .pipe(mocha({reporter:nyan}))
+});
+
+gulp.task('build:dev', ['tests:dev', 'webpack:dev', 'html:dev']);
 
 gulp.task('default', ['build:dev']);
