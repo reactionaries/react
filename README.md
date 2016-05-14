@@ -41,7 +41,7 @@ open http://localhost:5000
 
 ####Technologies:
 
-  - React: Client-side framework (including React-router and React-dom)
+  - React: Client-side framework (including React-router and React-dom) https://github.com/reactjs/react-tutorial
   - Gulp: Task runner
   - Webpack: Module bundler (plus Webpack-stream to run Webpack as a stream to conveniently integrate with Gulp)
   - Express: Server package  
