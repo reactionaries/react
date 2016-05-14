@@ -30,7 +30,7 @@ gulp.src(__dirname + '/app/js/client.js')
 
 gulp.task('tests:dev', () => {
   gulp.src(__dirname + '/test/**/*.js')
-    .pipe(mocha({reporter:nyan}))
+    .pipe(mocha({reporter: 'nyan'}))
 });
 
 gulp.task('build:dev', ['tests:dev', 'webpack:dev', 'html:dev']);
