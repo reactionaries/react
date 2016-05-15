@@ -29,23 +29,23 @@ gulp.src(__dirname + '/app/js/client.js')
   .pipe(gulp.dest('build/'));
 });
 
-gulp.task('tests:dev', ['lint:test'], () => {
-  gulp.src(__dirname + '/test/**/*.js')
-    .pipe(mocha({reporter: 'nyan'}));
-});
-gulp.task('lint:test', ['lint:nontest'], () => {
-  return gulp
-  .src('./test/**/*test.js')
-  .pipe(mocha({reporter: 'nyan'}))
-  .pipe(eslint())
-  .pipe(eslint.format());
-});
-gulp.task('lint:nontest', () => {
-  return gulp
-  .src(['/lib/**/*.js', '/app/js/**/*.js', '/models/**/*.js'])
-  .pipe(eslint())
-  .pipe(eslint.format());
-});
-gulp.task('build:dev', ['tests:dev', 'webpack:dev', 'html:dev']);
+// gulp.task('tests:dev', ['lint:test'], () => {
+//   gulp.src(__dirname + '/test/**/*.js')
+//     .pipe(mocha({reporter: 'nyan'}));
+// });
+// gulp.task('lint:test', ['lint:nontest'], () => {
+//   return gulp
+//   .src('./test/**/*test.js')
+//   .pipe(mocha({reporter: 'nyan'}))
+//   .pipe(eslint())
+//   .pipe(eslint.format());
+// });
+// gulp.task('lint:nontest', () => {
+//   return gulp
+//   .src(['/lib/**/*.js', '/app/js/**/*.js', '/models/**/*.js'])
+//   .pipe(eslint())
+//   .pipe(eslint.format());
+// });
+// gulp.task('build:dev', ['tests:dev', 'webpack:dev', 'html:dev']);
 
-gulp.task('default', ['webpack:dev', 'lint:test', 'lint:nontest']);
+gulp.task('default', ['webpack:dev', 'html:dev']);
