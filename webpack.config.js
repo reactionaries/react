@@ -10,10 +10,10 @@ var config = {
       test: /\.jsx?$/,
       loader: 'babel',
       query: {
-        presets:['react']
+        presets: ['react']
       }
     }]
-  },
+  }
 };
 
 module.exports = config;
