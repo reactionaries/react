@@ -6,10 +6,7 @@ const mongoose = require('mongoose');
 process.env.MONGOLAB_URI = 'mongodb://localhost/bears_app_test';
 // const server = require(__dirname + '/test_server');
 const Comment = require(__dirname + '/../models/comment');
-require('enzyme');
-import { shallow } from 'enzyme';
-
-describe()
+const PORT = process.env.PORT = 1234;
 
 describe('the bear chat api', () => {
   after((done) => {
@@ -19,7 +16,7 @@ describe('the bear chat api', () => {
   });
 
   it('should be able to retrieve all our bear comments', (done) => {
-    chai.request('localhost:3000')
+    chai.request('localhost:' + PORT)
       .get('/api/comments')
       .end((err, res) => {
         expect(err).to.eql(null);
@@ -29,7 +26,7 @@ describe('the bear chat api', () => {
   });
 
   it('should create a bear comment with a POST', (done) => {
-    chai.request('localhost:3000')
+    chai.request('localhost:' + PORT)
       .post('/api/comments')
       .send({bear: 'test bear', message: 'salmons running big on Skagit, yo'})
       .end((err, res) => {
@@ -51,7 +48,7 @@ describe('the bear chat api', () => {
     });
 
     it('should be able to update a bears comment', (done) => {
-      chai.request('localhost:3000')
+      chai.request('localhost:' + PORT)
         .put('/api/comments/' + this.testComment._id)
         .send({message: 'new bear comment'})
         .end((err, res) => {
@@ -63,7 +60,7 @@ describe('the bear chat api', () => {
     });
 
     it('should be able to delete a bear comment', (done) => {
-      chai.request('localhost:3000')
+      chai.request('localhost:' + PORT)
         .delete('/api/comments/' + this.testComment._id)
         .end((err, res) => {
           expect(err).to.eql(null);
