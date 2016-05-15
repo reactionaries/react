@@ -32,7 +32,19 @@ gulp.task('tests:dev', () => {
   gulp.src(__dirname + '/test/**/*.js')
     .pipe(mocha({reporter: 'nyan'}))
 });
-
+gulp.task('lint:test', ['lint:nontest'], () => {
+  return gulp
+  .src('./test/**/*test.js')
+  .pipe(mocha({reporter: 'nyan'}))
+  .pipe(eslint())
+  .pipe(eslint.format());
+});
+gulp.task('lint:nontest', () => {
+  return gulp
+  .src(files)
+  .pipe(eslint())
+  .pipe(eslint.format());
+});
 gulp.task('build:dev', ['tests:dev', 'webpack:dev', 'html:dev']);
 
-gulp.task('default', ['build:dev']);
+gulp.task('default', ['build:dev', 'lint:test', 'lint:nontest']);
