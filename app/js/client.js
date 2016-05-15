@@ -128,6 +128,6 @@ var CommentForm = React.createClass({
 });
 
 ReactDOM.render(
-  <CommentBox url="/api/comments" pollInterval={100000} />,
+  <CommentBox url="/api/comments" pollInterval={2000} />,
   document.getElementById('root')
 );

@@ -18,7 +18,7 @@ This is a single resource CRUD client app using the React framework and backed b
 ### Build assets
 
 ```bash
-> ./node_modules/.bin/gulp
+> gulp
 ```
 
 ### Start mongodb
@@ -28,16 +28,19 @@ This is a single resource CRUD client app using the React framework and backed b
 ```
 
 ### Run server
-
+Open a second terminal instance.
 ```bash
-> node ./server.js
+> node server
 ```
+Note which port it says the server is running on.
 
 ### CHECK IT OUT
-
+In browser:
 ```
 open http://localhost:5000
 ```
+5000 is the default for this project, but use the port identified in the Node instance.
+
 
 ####Technologies:
 
