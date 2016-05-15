@@ -48,4 +48,4 @@ gulp.task('lint:nontest', () => {
 });
 gulp.task('build:dev', ['tests:dev', 'webpack:dev', 'html:dev']);
 
-gulp.task('default', ['build:dev', 'lint:test', 'lint:nontest']);
+gulp.task('default', ['webpack:dev', 'lint:test', 'lint:nontest']);
