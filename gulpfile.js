@@ -41,7 +41,7 @@ gulp.task('lint:test', ['lint:nontest'], () => {
 });
 gulp.task('lint:nontest', () => {
   return gulp
-  .src(files)
+  .src('/lib/**/*.js', '/app/js/**/*.js', '/models/**/*.js')
   .pipe(eslint())
   .pipe(eslint.format());
 });
