@@ -4,8 +4,8 @@ var marked = require('react-marked');
 
 var Comment = React.createClass({
   rawMarkup: function() {
-    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-    return { __html: rawMarkup };
+    var rawText = this.props.children.toString();
+    return { __html: rawText };
   },
   render: function() {
     console.log(this.props);
@@ -36,9 +36,9 @@ var CommentBox = React.createClass({
   },
   handleCommentSubmit: function(comment) {
     var comments = this.state.data;
-    comment.id = Date.now();
     var newComments = comments.concat([comment]);
     this.setState({data: newComments});
+    console.log("data: ", comment);
     $.ajax({
       url: this.props.url,
       dataType: 'json',
