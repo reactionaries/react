@@ -3,7 +3,6 @@ const app = module.exports = exports = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/bears_app_dev');
-
 const bearsRouter = require(__dirname + '/../lib/bear_routes_3000');
 
 app.use( (req, res, next) => {
@@ -15,5 +14,5 @@ app.use( (req, res, next) => {
 
 app.use('/api', bearsRouter);
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT;
 app.listen(PORT, () => console.log('server up on port: ' + PORT));

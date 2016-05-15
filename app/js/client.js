@@ -48,7 +48,7 @@ var CommentBox = React.createClass({
     });
     comment._id = Date.now().toString();
     var comments = this.state.data;
-    var newComments = comments.concat(comment);
+    var newComments = comments.concat([comment]);
     this.setState({data: newComments});
   },
   getInitialState: function() {
