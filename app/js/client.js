@@ -48,7 +48,7 @@ var CommentBox = React.createClass({
     });
     comment._id = Date.now().toString();
     var comments = this.state.data;
-    var newComments = comments.concat(comment);
+    var newComments = comments.concat([comment]);
     this.setState({data: newComments});
   },
   getInitialState: function() {
@@ -128,6 +128,6 @@ var CommentForm = React.createClass({
 });
 
 ReactDOM.render(
-  <CommentBox url="/api/comments" pollInterval={100000} />,
+  <CommentBox url="/api/comments" pollInterval={2000} />,
   document.getElementById('root')
 );

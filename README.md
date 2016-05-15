@@ -16,9 +16,9 @@ This is a single resource CRUD client app using the React framework and backed b
 ```
 
 ### Build assets
-
+To build just the assets type the following:
 ```bash
-> ./node_modules/.bin/gulp
+> gulp build
 ```
 
 ### Start mongodb
@@ -28,16 +28,29 @@ This is a single resource CRUD client app using the React framework and backed b
 ```
 
 ### Run server
-
+Open a second terminal instance.
 ```bash
-> node ./server.js
+> node server
 ```
+Note which port it says the server is running on.
 
 ### CHECK IT OUT
-
+In browser:
 ```
 open http://localhost:5000
 ```
+5000 is the default for this project, but use the port identified in the Node instance.
+
+Enter a bear name and a bear comment (hint: they talk about salmons a lot!).
+Observe that the bear name and comment appear on screen.
+Also observe that you cannot add a comment without both a bear name and comment.
+
+### Tests?!
+Do you like tests? Try this:
+```
+mocha
+```
+Nyan Cat will take you over the rainbow to Passingtestville. 
 
 ####Technologies:
 
