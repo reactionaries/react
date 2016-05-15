@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const webpack = require('webpack-stream');
-const preset = require('babel-preset-react');
-const babel = require('babel-loader');
+// const preset = require('babel-preset-react');
+// const babel = require('babel-loader');
 const mocha = require('gulp-mocha');
 const eslint = require('gulp-eslint');
 
@@ -31,7 +31,7 @@ gulp.src(__dirname + '/app/js/client.js')
 
 gulp.task('tests:dev', ['lint:test'], () => {
   gulp.src(__dirname + '/test/**/*.js')
-    .pipe(mocha({reporter: 'nyan'}))
+    .pipe(mocha({reporter: 'nyan'}));
 });
 gulp.task('lint:test', ['lint:nontest'], () => {
   return gulp

@@ -4,7 +4,7 @@ chai.use(chaiHttp);
 const expect = chai.expect;
 const mongoose = require('mongoose');
 process.env.MONGOLAB_URI = 'mongodb://localhost/bears_app_test';
-const server = require(__dirname + '/test_server');
+// const server = require(__dirname + '/test_server');
 const Comment = require(__dirname + '/../models/comment');
 
 describe('the bear chat api', () => {
@@ -28,7 +28,7 @@ describe('the bear chat api', () => {
     chai.request('localhost:3000')
       .post('/api/comments')
       .send({bear: 'test bear', message: 'salmons running big on Skagit, yo'})
-      .end(function(err, res) {
+      .end((err, res) => {
         expect(err).to.eql(null);
         expect(res).to.have.status(200);
         expect(res.body.bear).to.eql('test bear');
