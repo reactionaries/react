@@ -1,0 +1,142 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/kristopherskelton/.node/bin/node',
+1 verbose cli   '/Users/kristopherskelton/.node/bin/npm',
+1 verbose cli   'i',
+1 verbose cli   '-S',
+1 verbose cli   'react-markdown' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.3
+4 verbose install initial load of /Users/kristopherskelton/sea-401d7/week6/react/package.json
+5 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/babel-core/package.json
+6 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/babel-loader/package.json
+7 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/babel-preset-react/package.json
+8 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/body-parser/package.json
+9 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/chai/package.json
+10 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/chai-http/package.json
+11 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/enzyme/package.json
+12 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/express/package.json
+13 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/gulp/package.json
+14 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/gulp-eslint/package.json
+15 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/gulp-load-plugins/package.json
+16 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/gulp-mocha/package.json
+17 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/jquery/package.json
+18 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/mongoose/package.json
+19 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/react/package.json
+20 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/react-dom/package.json
+21 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/react-marked/package.json
+22 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/react-router/package.json
+23 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/reactify/package.json
+24 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/webpack/package.json
+25 verbose installManyTop reading scoped package data from /Users/kristopherskelton/sea-401d7/week6/react/node_modules/webpack-stream/package.json
+26 info package.json chai-http@2.0.1 No license field.
+27 verbose readDependencies loading dependencies from /Users/kristopherskelton/sea-401d7/week6/react/package.json
+28 silly cache add args [ 'react-markdown@^0.3.1', null ]
+29 verbose cache add spec react-markdown@^0.3.1
+30 silly cache add parsed spec Result {
+30 silly cache add   raw: 'react-markdown@^0.3.1',
+30 silly cache add   scope: null,
+30 silly cache add   name: 'react-markdown',
+30 silly cache add   rawSpec: '^0.3.1',
+30 silly cache add   spec: '>=0.3.1 <0.4.0',
+30 silly cache add   type: 'range' }
+31 silly addNamed react-markdown@>=0.3.1 <0.4.0
+32 verbose addNamed ">=0.3.1 <0.4.0" is a valid semver range for react-markdown
+33 silly addNameRange { name: 'react-markdown',
+33 silly addNameRange   range: '>=0.3.1 <0.4.0',
+33 silly addNameRange   hasData: false }
+34 silly mapToRegistry name react-markdown
+35 silly mapToRegistry using default registry
+36 silly mapToRegistry registry https://registry.npmjs.org/
+37 silly mapToRegistry uri https://registry.npmjs.org/react-markdown
+38 verbose addNameRange registry:https://registry.npmjs.org/react-markdown not in flight; fetching
+39 verbose request uri https://registry.npmjs.org/react-markdown
+40 verbose request no auth needed
+41 info attempt registry request try #1 at 12:58:13
+42 verbose request id 13cc95a91cf0fe2d
+43 http request GET https://registry.npmjs.org/react-markdown
+44 http 200 https://registry.npmjs.org/react-markdown
+45 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+45 verbose headers   etag: '"50PU44ZVUUCJV31Q2UHFPAJSD"',
+45 verbose headers   'content-type': 'application/json',
+45 verbose headers   'content-encoding': 'gzip',
+45 verbose headers   'cache-control': 'max-age=300',
+45 verbose headers   'content-length': '6986',
+45 verbose headers   'accept-ranges': 'bytes',
+45 verbose headers   date: 'Sun, 15 May 2016 19:58:14 GMT',
+45 verbose headers   via: '1.1 varnish',
+45 verbose headers   age: '0',
+45 verbose headers   connection: 'keep-alive',
+45 verbose headers   'x-served-by': 'cache-lax1424-LAX',
+45 verbose headers   'x-cache': 'MISS',
+45 verbose headers   'x-cache-hits': '0',
+45 verbose headers   'x-timer': 'S1463342293.955846,VS0,VE94',
+45 verbose headers   vary: 'Accept-Encoding' }
+46 silly get cb [ 200,
+46 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+46 silly get     etag: '"50PU44ZVUUCJV31Q2UHFPAJSD"',
+46 silly get     'content-type': 'application/json',
+46 silly get     'content-encoding': 'gzip',
+46 silly get     'cache-control': 'max-age=300',
+46 silly get     'content-length': '6986',
+46 silly get     'accept-ranges': 'bytes',
+46 silly get     date: 'Sun, 15 May 2016 19:58:14 GMT',
+46 silly get     via: '1.1 varnish',
+46 silly get     age: '0',
+46 silly get     connection: 'keep-alive',
+46 silly get     'x-served-by': 'cache-lax1424-LAX',
+46 silly get     'x-cache': 'MISS',
+46 silly get     'x-cache-hits': '0',
+46 silly get     'x-timer': 'S1463342293.955846,VS0,VE94',
+46 silly get     vary: 'Accept-Encoding' } ]
+47 verbose get saving react-markdown to /Users/kristopherskelton/.npm/registry.npmjs.org/react-markdown/.cache.json
+48 silly addNameRange number 2 { name: 'react-markdown',
+48 silly addNameRange   range: '>=0.3.1 <0.4.0',
+48 silly addNameRange   hasData: true }
+49 silly addNameRange versions [ 'react-markdown',
+49 silly addNameRange   [ '1.0.0',
+49 silly addNameRange     '1.0.1',
+49 silly addNameRange     '1.0.3',
+49 silly addNameRange     '1.0.5',
+49 silly addNameRange     '1.1.0',
+49 silly addNameRange     '1.1.1',
+49 silly addNameRange     '1.1.3',
+49 silly addNameRange     '1.1.4',
+49 silly addNameRange     '1.2.0',
+49 silly addNameRange     '1.2.1',
+49 silly addNameRange     '1.2.2',
+49 silly addNameRange     '1.2.3',
+49 silly addNameRange     '1.2.4',
+49 silly addNameRange     '2.0.0',
+49 silly addNameRange     '2.0.1',
+49 silly addNameRange     '2.1.0',
+49 silly addNameRange     '2.1.1',
+49 silly addNameRange     '2.2.0' ] ]
+50 verbose stack Error: No compatible version found: react-markdown@'>=0.3.1 <0.4.0'
+50 verbose stack Valid install targets:
+50 verbose stack ["1.0.0","1.0.1","1.0.3","1.0.5","1.1.0","1.1.1","1.1.3","1.1.4","1.2.0","1.2.1","1.2.2","1.2.3","1.2.4","2.0.0","2.0.1","2.1.0","2.1.1","2.2.0"]
+50 verbose stack
+50 verbose stack     at installTargetsError (/Users/kristopherskelton/.node/lib/node_modules/npm/lib/cache/add-named.js:284:12)
+50 verbose stack     at next (/Users/kristopherskelton/.node/lib/node_modules/npm/lib/cache/add-named.js:262:19)
+50 verbose stack     at setData (/Users/kristopherskelton/.node/lib/node_modules/npm/lib/cache/add-named.js:236:5)
+50 verbose stack     at RES (/Users/kristopherskelton/.node/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+50 verbose stack     at f (/Users/kristopherskelton/.node/lib/node_modules/npm/node_modules/once/once.js:17:25)
+50 verbose stack     at fixName (/Users/kristopherskelton/.node/lib/node_modules/npm/lib/cache/add-named.js:29:5)
+50 verbose stack     at saved (/Users/kristopherskelton/.node/lib/node_modules/npm/lib/cache/caching-client.js:173:7)
+50 verbose stack     at /Users/kristopherskelton/.node/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:210:7
+50 verbose stack     at FSReqWrap.oncomplete (fs.js:82:15)
+51 verbose cwd /Users/kristopherskelton/sea-401d7/week6/react
+52 error Darwin 14.5.0
+53 error argv "/Users/kristopherskelton/.node/bin/node" "/Users/kristopherskelton/.node/bin/npm" "i" "-S" "react-markdown"
+54 error node v4.2.3
+55 error npm  v2.14.7
+56 error code ETARGET
+57 error notarget No compatible version found: react-markdown@'>=0.3.1 <0.4.0'
+57 error notarget Valid install targets:
+57 error notarget ["1.0.0","1.0.1","1.0.3","1.0.5","1.1.0","1.1.1","1.1.3","1.1.4","1.2.0","1.2.1","1.2.2","1.2.3","1.2.4","2.0.0","2.0.1","2.1.0","2.1.1","2.2.0"]
+57 error notarget
+57 error notarget This is most likely not a problem with npm itself.
+57 error notarget In most cases you or one of your dependencies are requesting
+57 error notarget a package version that doesn't exist.
+57 error notarget
+57 error notarget It was specified as a dependency of 'react'
+58 verbose exit [ 1, true ]

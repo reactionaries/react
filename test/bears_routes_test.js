@@ -6,6 +6,10 @@ const mongoose = require('mongoose');
 process.env.MONGOLAB_URI = 'mongodb://localhost/bears_app_test';
 // const server = require(__dirname + '/test_server');
 const Comment = require(__dirname + '/../models/comment');
+require('enzyme');
+import { shallow } from 'enzyme';
+
+describe()
 
 describe('the bear chat api', () => {
   after((done) => {

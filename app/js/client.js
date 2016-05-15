@@ -1,19 +1,20 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var marked = require('react-marked');
 
 var Comment = React.createClass({
   rawMarkup: function() {
     var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
     return { __html: rawMarkup };
   },
-
   render: function() {
+    console.log(this.props);
     return (
       <div className="comment">
         <h2 className="commentAuthor">
           {this.props.bear}
         </h2>
-        <span dangerouslySetInnerHTML={this.rawMarkup()} />
+        <span dangerouslySetInnerHTML={ this.rawMarkup() } />
       </div>
     );
   }
@@ -74,13 +75,13 @@ var CommentList = React.createClass({
   render: function() {
     var commentNodes = this.props.data.map(function(comment) {
       return (
-        <Comment author={comment.bear} key={comment.id}>
+        <Comment bear={comment.bear} key={comment._id}>
           {comment.message}
         </Comment>
       );
     });
     return (
-      <div className="commentList">
+      <div className="commentList" key={this.props.id}>
         {commentNodes}
       </div>
     );
@@ -122,13 +123,13 @@ var CommentForm = React.createClass({
           value={this.state.message}
           onChange={this.handleTextChange}
         />
-        <input type="submit" value="Post" />
+      <input type="submit" value="POST" />
       </form>
     );
   }
 });
 
 ReactDOM.render(
-  <CommentBox url="/api/comments" pollInterval={500} />,
-  document.getElementById('content')
+  <CommentBox url="/api/comments" pollInterval={2000} />,
+  document.getElementById('root')
 );
