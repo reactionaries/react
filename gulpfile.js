@@ -29,7 +29,7 @@ gulp.src(__dirname + '/app/js/client.js')
   .pipe(gulp.dest('build/'));
 });
 
-gulp.task('tests:dev', () => {
+gulp.task('tests:dev', ['lint:test'], () => {
   gulp.src(__dirname + '/test/**/*.js')
     .pipe(mocha({reporter: 'nyan'}))
 });
