@@ -1,6 +1,5 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var marked = require('react-marked');
 
 var Comment = React.createClass({
   rawMarkup: function() {
@@ -8,7 +7,6 @@ var Comment = React.createClass({
     return { __html: rawText };
   },
   render: function() {
-    console.log(this.props);
     return (
       <div className="comment">
         <h2 className="commentAuthor">
@@ -30,28 +28,28 @@ var CommentBox = React.createClass({
         this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
+        console.error("CommentBox ajax GET Error:",this.props.url, status, err.toString());
       }.bind(this)
     });
   },
   handleCommentSubmit: function(comment) {
-    var comments = this.state.data;
-    var newComments = comments.concat([comment]);
-    this.setState({data: newComments});
-    console.log("data: ", comment);
     $.ajax({
       url: this.props.url,
-      dataType: 'json',
+      contentType: 'application/json',
       type: 'POST',
-      data: comment,
+      data: JSON.stringify(comment),
       success: function(data) {
         this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
         this.setState({data: comments});
-        console.error(this.props.url, status, err.toString());
+        console.error("CommentBox ajax post error:",this.props.url, status, err.toString());
       }.bind(this)
     });
+    comment._id = Date.now().toString();
+    var comments = this.state.data;
+    var newComments = comments.concat(comment);
+    this.setState({data: newComments});
   },
   getInitialState: function() {
     return {data: []};
@@ -81,7 +79,7 @@ var CommentList = React.createClass({
       );
     });
     return (
-      <div className="commentList" key={this.props.id}>
+      <div className="commentList">
         {commentNodes}
       </div>
     );
@@ -130,6 +128,6 @@ var CommentForm = React.createClass({
 });
 
 ReactDOM.render(
-  <CommentBox url="/api/comments" pollInterval={2000} />,
+  <CommentBox url="/api/comments" pollInterval={100000} />,
   document.getElementById('root')
 );
