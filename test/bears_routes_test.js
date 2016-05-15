@@ -16,7 +16,7 @@ describe('the bear chat api', () => {
 
   it('should be able to retrieve all our bear comments', (done) => {
     chai.request('localhost:3000')
-      .get('/api/bears')
+      .get('/api/comments')
       .end((err, res) => {
         expect(err).to.eql(null);
         expect(Array.isArray(res.body)).to.eql(true);
@@ -26,7 +26,7 @@ describe('the bear chat api', () => {
 
   it('should create a bear comment with a POST', (done) => {
     chai.request('localhost:3000')
-      .post('/api/bears')
+      .post('/api/comments')
       .send({bear: 'test bear', message: 'salmons running big on Skagit, yo'})
       .end(function(err, res) {
         expect(err).to.eql(null);
@@ -48,7 +48,7 @@ describe('the bear chat api', () => {
 
     it('should be able to update a bears comment', (done) => {
       chai.request('localhost:3000')
-        .put('/api/bears/' + this.testComment._id)
+        .put('/api/comments/' + this.testComment._id)
         .send({message: 'new bear comment'})
         .end((err, res) => {
           expect(err).to.eql(null);
@@ -60,7 +60,7 @@ describe('the bear chat api', () => {
 
     it('should be able to delete a bear comment', (done) => {
       chai.request('localhost:3000')
-        .delete('/api/bears/' + this.testComment._id)
+        .delete('/api/comments/' + this.testComment._id)
         .end((err, res) => {
           expect(err).to.eql(null);
           expect(res).to.have.status(200);
